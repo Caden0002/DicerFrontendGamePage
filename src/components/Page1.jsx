@@ -1,12 +1,13 @@
-const background = "bg-backgroundColorPrimary";
-
+import QuestCard from "./QuestCard";
 
 function Page1(props) {
     return (
-        <div className={`relative min-h-screen flex ${background}`}>
-            <div className="container max-w-screen-xl mx-auto flex justify-center items-center text-4xl text-white ">
-Dicer Frontend Game Page
-            </div>
+        <div className="flex bg-black">
+            <QuestCard title="Camaradarie" />
+            <QuestCard title="Flipper" />
+            <QuestCard title="Sputnik" />
+            <QuestCard title="Soyuz" />
+            <QuestCard title="Lucky7" />
         </div>
     );
 }
