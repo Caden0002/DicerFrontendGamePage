@@ -9,7 +9,7 @@ export default function App() {
             <Hero />
             <QuestBanner />
 
-            <Page1 />
+            {/* <Page1 /> */}
 
         </>
     )
