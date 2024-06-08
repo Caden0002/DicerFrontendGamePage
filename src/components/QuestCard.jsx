@@ -53,6 +53,7 @@ function QuestProgress({ title, value }) {
 }
 
 export default function QuestCard({ title, value }) {
+    
     const image = images[title];
     const description = descriptions[title];
 
