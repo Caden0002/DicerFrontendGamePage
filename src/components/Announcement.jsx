@@ -9,17 +9,35 @@ const background = "bg-backgroundColorPrimary"; // Replace with the correct Tail
 function Announcement(props) {
     const scrollContainerRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(1); // Assuming the middle poster is the initial active one
-useEffect(() => {
+    const posters = [AnnouncementPoster1, AnnouncementPoster2, AnnouncementPoster3];
+
+   useEffect(() => {
     const container = scrollContainerRef.current;
+     if (container) {
+        const middlePosterIndex = Math.floor(posters.length / 2);
+        const middlePoster = container.children[0].children[middlePosterIndex];
+        if (middlePoster) {
+            container.scrollLeft = middlePoster.offsetLeft - (container.clientWidth - middlePoster.clientWidth) / 2;
+        }
+    }
+
     const handleScroll = () => {
         const scrollLeft = container.scrollLeft;
         const slideWidth = container.children[0].children[0].offsetWidth;
         const index = Math.round(scrollLeft / slideWidth);
         setActiveIndex(index);
     };
+
     container.addEventListener('scroll', handleScroll);
-    return () => container.removeEventListener('scroll', handleScroll);
-}, []);
+
+    // Scroll to the middle poster initially
+   
+
+    return () => {
+        container.removeEventListener('scroll', handleScroll);
+    };
+}, [posters.length]);
+
 
     const handleDotClick = (index) => {
         const container = scrollContainerRef.current;
@@ -34,21 +52,17 @@ useEffect(() => {
 
     return (
         <div className={`relative flex h-full ${background}`}>
-            <div className="container max-w-screen-xl mx-auto flex flex-col items-center relative z-20">
-                <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide w-full snap-x snap-mandatory">
+            <div className="container max-w-screen-xl mx-auto flex flex-col items-center relative z-20 "style={{ borderBottom: '1px solid #E6E6E666' }} >
+                <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide w-full snap-x snap-mandatory" >
                     <div className="flex py-6 px-3 space-x-3 w-max">
-                        <div className="snap-center flex-shrink-0">
-                            <AnnouncementPoster1 />
-                        </div>
-                        <div className="snap-center flex-shrink-0">
-                            <AnnouncementPoster2 />
-                        </div>
-                        <div className="snap-center flex-shrink-0">
-                            <AnnouncementPoster3 />
-                        </div>
+                        {posters.map((Poster, index) => (
+                            <div key={index} className="snap-center flex-shrink-0">
+                                <Poster />
+                            </div>
+                        ))}
                     </div>
                 </div>
-                <div className="flex items-center justify-center pb-6">
+                <div className="flex items-center justify-center pb-6 ">
                     {[0, 1, 2].map(index => (
                         <div
                             key={index}

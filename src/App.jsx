@@ -4,6 +4,7 @@ import Page1 from "./components/Page1.jsx";
 import GameBento from "./components/GameBento.jsx";
 import Announcement from "./components/Announcement.jsx";
 import AnnouncementInfinite from "./components/AnnouncementInfinite.jsx";
+import Footer from "./components/Footer.jsx";
 
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
             <GameBento />
             <Announcement />
             {/* <AnnouncementInfinite /> */}
+            <Footer />
 
 
             {/* <Page1 /> */}
