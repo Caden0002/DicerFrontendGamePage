@@ -20,12 +20,12 @@ function QuestBanner(props) {
                         <QuestCard title="Soyuz" value={100} />
                         <QuestCard title="Flipper" value={20} />
                         <QuestCard title="Sputnik" value={12} />
-                        <div className="flex items-center space-x-4" style={{ width: '154px' }}>
+                        <button className="flex items-center space-x-4" style={{ width: '154px' }}>
                             <div className="sfuiQuestCardTitle" style={{ color: 'rgba(209, 224, 255, 1)' }}>
                                 {ViewMoreButtonText}
                             </div>
                             <img src={ViewMoreArrow} alt="View More Arrow" />
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

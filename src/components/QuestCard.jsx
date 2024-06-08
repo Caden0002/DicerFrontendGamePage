@@ -52,12 +52,12 @@ function QuestProgress({ title, value }) {
     );
 }
 
-function QuestCard({ title, value }) {
+export default function QuestCard({ title, value }) {
     const image = images[title];
     const description = descriptions[title];
 
     return (
-        <div className="w-50 h-auto flex flex-col justify-center items-center p-2">
+        <div className="w-50 h-auto flex flex-col justify-center items-center p-">
             <img src={image} alt={title} className="w-auto h-auto" />
             <div className="py-2 space-y-1 text-center">
                 <div className="sfuiQuestCardTitle text-textColorPrimary">
@@ -75,4 +75,4 @@ function QuestCard({ title, value }) {
     );
 }
 
-export default QuestCard;
+
