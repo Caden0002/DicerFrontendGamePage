@@ -22,7 +22,6 @@ function Announcement(props) {
         draggable: true, // Enable dragging to scroll
         autoplay: true, // Enable autoplay
         autoplaySpeed: 2000, // Set autoplay speed to 2 seconds
-
         dots: true,
         
     customPaging: i => (

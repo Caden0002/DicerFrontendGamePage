@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../../static/fonts.css';
 import AnnouncementPoster1 from './AnnouncementPoster1.jsx';
 import AnnouncementPoster2 from './AnnouncementPoster2.jsx'; // Corrected import statement
@@ -8,18 +8,29 @@ const background = "bg-backgroundColorPrimary"; // Replace with the correct Tail
 
 function Announcement(props) {
     const scrollContainerRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(1); // Assuming the middle poster is the initial active one
+useEffect(() => {
+    const container = scrollContainerRef.current;
+    const handleScroll = () => {
+        const scrollLeft = container.scrollLeft;
+        const slideWidth = container.children[0].children[0].offsetWidth;
+        const index = Math.round(scrollLeft / slideWidth);
+        setActiveIndex(index);
+    };
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+}, []);
 
-    useEffect(() => {
-        // Scroll to the middle poster
+    const handleDotClick = (index) => {
         const container = scrollContainerRef.current;
         if (container) {
-            const middlePosterIndex = Math.floor(container.children[0].children.length / 2);
-            const middlePoster = container.children[0].children[middlePosterIndex];
-            if (middlePoster) {
-                container.scrollLeft = middlePoster.offsetLeft - (container.clientWidth - middlePoster.clientWidth) / 2;
+            const poster = container.children[0].children[index];
+            if (poster) {
+                container.scrollLeft = poster.offsetLeft - (container.clientWidth - poster.clientWidth) / 2;
+                setActiveIndex(index);
             }
         }
-    }, []);
+    };
 
     return (
         <div className={`relative flex h-full ${background}`}>
@@ -36,6 +47,15 @@ function Announcement(props) {
                             <AnnouncementPoster3 />
                         </div>
                     </div>
+                </div>
+                <div className="flex items-center justify-center pb-6">
+                    {[0, 1, 2].map(index => (
+                        <div
+                            key={index}
+                            className={`w-3 h-3 rounded-full mx-2 cursor-pointer ${index === activeIndex ? 'bg-neutral-50' : 'bg-gray-700'}`}
+                            onClick={() => handleDotClick(index)}
+                        />
+                    ))}
                 </div>
             </div>
         </div>

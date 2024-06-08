@@ -12,8 +12,8 @@ export default function App() {
             <Hero />
             <QuestBanner />
             <GameBento />
-            {/* <Announcement /> */}
-            <AnnouncementInfinite />
+            <Announcement />
+            {/* <AnnouncementInfinite /> */}
 
 
             {/* <Page1 /> */}
