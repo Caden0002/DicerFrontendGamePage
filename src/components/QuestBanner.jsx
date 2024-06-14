@@ -11,8 +11,8 @@ function QuestBanner(props) {
         <div className={`relative flex h-full ${background}`}>
             <div className="container max-w-screen-xl mx-auto flex flex-col items-center relative z-20">
                 <div className="overflow-x-auto scrollbar-hide w-full">
-                    <div className="flex py-6 space-x-12 w-max">
-                        <QuestCard title="Camaradarie" value={2} />
+                    <div className="flex py-6 px-6 space-x-12 w-max">
+                        <QuestCard title="Camaradarie" value={5} />
                         <QuestCard title="Flipper" value={50} />
                         <QuestCard title="Sputnik" value={10} />
                         <QuestCard title="Camaradarie" value={4} />

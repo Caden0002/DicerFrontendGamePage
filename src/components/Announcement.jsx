@@ -52,8 +52,8 @@ function Announcement(props) {
 
     return (
         <div className={`relative flex h-full ${background}`}>
-            <div className="container max-w-screen-xl mx-auto flex flex-col items-center relative z-20 "style={{ borderBottom: '1px solid #E6E6E666' }} >
-                <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide w-full snap-x snap-mandatory" >
+            <div className="container max-w-screen-xl mx-auto flex flex-col items-center relative z-20 ">
+                <div ref={scrollContainerRef} className="overflow-x-auto scrollbar-hide w-full snap-x snap-mandatory" style={{ borderB: '1px solid #E6E6E666' }}>
                     <div className="flex py-6 px-3 space-x-3 w-max">
                         {posters.map((Poster, index) => (
                             <div key={index} className="snap-center flex-shrink-0">
