@@ -8,7 +8,7 @@ const background = "bg-backgroundColorPrimary"; // Replace with the correct Tail
 
 function QuestBanner(props) {
     return (
-        <div className={`relative flex h-full ${background}`}>
+        <div id="QuestBanner" className={`relative flex h-full ${background}`}>
             <div className="container max-w-screen-xl mx-auto flex flex-col items-center relative z-20">
                 <div className="overflow-x-auto scrollbar-hide w-full">
                     <div className="flex py-6 px-6 space-x-12 w-max">

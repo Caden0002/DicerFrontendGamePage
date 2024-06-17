@@ -35,9 +35,9 @@ const NavbarDropDownQuest = ({ isHovered }) => {
     };
 
     const currentTotal = {
-        Camaradarie: 1,
-        Flipper: 10,
-        Sputnik: 2,
+        Camaradarie: 3,
+        Flipper: 89,
+        Sputnik: 0,
         Soyuz: 45,
         Lucky7: 3
     };
