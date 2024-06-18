@@ -21,6 +21,7 @@ const options = {
     arrows: false,
     autoplay: true,
     interval: 2000, // Change this to the desired interval in milliseconds
+    pauseOnHover: false,
 };
 
     return (
